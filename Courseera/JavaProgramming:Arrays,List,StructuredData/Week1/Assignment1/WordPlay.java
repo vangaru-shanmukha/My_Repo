@@ -73,8 +73,8 @@ public class WordPlay
     }
     public void testIsVowel()
     {
-        char test1 = 'B';
-        char test2 = 'C';
+        char test1 = 'A';
+        char test2 = 'B';
         System.out.println("Is " + test1 + " vowel? - " + isVowel(test1));
         System.out.println("Is " + test2 + " vowel? - " + isVowel(test2));
     }
