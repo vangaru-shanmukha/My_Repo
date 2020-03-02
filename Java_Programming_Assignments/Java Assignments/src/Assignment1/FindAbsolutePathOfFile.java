@@ -6,10 +6,19 @@ package Assignment1;
 
 import java.io.File;
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FindAbsolutePathOfFile {
+
+	private static Pattern pattern;
+
+	private static Pattern getPattern(String fileNameRegex) {
+		Pattern pattern = Pattern.compile(fileNameRegex);
+		return pattern;
+	}
+
 	/**
 	 * This method is used to check whether file name matches with fileNameRegex
 	 * 
@@ -18,9 +27,8 @@ public class FindAbsolutePathOfFile {
 	 *            is the regular expression
 	 * @return true if the file name matches with fileNameRegex else false
 	 */
-	public static boolean isMatched(File file, String fileNameRegex) {
+	private static boolean isMatched(File file, String fileNameRegex) {
 		boolean result = false;
-		Pattern pattern = Pattern.compile(fileNameRegex);
 		Matcher m = pattern.matcher(file.getName());
 		if (m.find()) {
 			result = true;
@@ -38,20 +46,32 @@ public class FindAbsolutePathOfFile {
 	 *            is the regular expression entered by the user
 	 */
 	public static void findPath(File filePath, String fileNameRegex) {
-		// iterating over the list of files present in the filePath directory
-		for (File f : filePath.listFiles()) {
-			// if the file name starts with '.' we ignore them
-			if (!f.getName().startsWith(".")) {
-				// if the file name does not start with '.' and is a directory
-				if (f.isDirectory()) {
-					// making the recursive call to findPath()
-					findPath(f, fileNameRegex);
-				}
-				// if the file name does not start with '.' and is not a directory
+		// creating a stack to keep track of the list of directories
+		Stack<File> fileStack = new Stack<File>();
+		// adding the home or current directory to the stack
+		fileStack.add(filePath);
+		// iterating till the stack becomes empty
+		while (fileStack.isEmpty() == false) {
+			// removing an element from the stack
+			File file = fileStack.pop();
+			// getting the list of files from that folder
+			File[] files = file.listFiles();
+			// iterating over the list
+			for (File f : files) {
+				// getting the file name
+				String fileName = f.getName();
+				// if the file name starts with "." we ignore it
+				if (fileName.startsWith("."))
+					continue;
 				else {
-					// checking whether the file name matches the entered regular expression
-					if (isMatched(f, fileNameRegex))
-						// if matched print the absolute path of the file
+					// if the file is a directory
+					if (f.isDirectory())
+						// add the file to the stack
+						fileStack.add(f);
+					// else if the file is not directory we check whether the filename matches with
+					// the regex
+					else if (isMatched(f, fileNameRegex))
+						// if matched we print its absolute path to the console
 						System.out.println(f.getAbsolutePath());
 				}
 			}
@@ -73,6 +93,8 @@ public class FindAbsolutePathOfFile {
 			// Getting the regular expression from the user
 			System.out.print("Enter the regular expression:");
 			String fileNameRegex = sc.next();
+			// getting the pattern object
+			pattern = getPattern(fileNameRegex);
 			// method to find the absolute path of the files with the entered regular
 			// expression
 			findPath(filePath, fileNameRegex);
