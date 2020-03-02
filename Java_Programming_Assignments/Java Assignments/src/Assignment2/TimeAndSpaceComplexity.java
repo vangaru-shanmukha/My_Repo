@@ -7,6 +7,7 @@
  */
 package Assignment2;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class TimeAndSpaceComplexity {
@@ -19,25 +20,25 @@ public class TimeAndSpaceComplexity {
 	 */
 	public static boolean isHavingAllLetters(String text) {
 		boolean result = false;
-		int numOfCharacters = 0;
-		// replacing any non-word characters with a empty character
-		text = text.replaceAll("\\W+", "");
 		// converting the text to lower case
 		text = text.toLowerCase();
-		// creating an array of size 26 to keep track of the alphabets that are visited
-		int contains[] = new int[26];
-		// iterating over the text
-		for (int index = 0; index < text.length(); index++) {
-			char character = text.charAt(index);
-			// if the position in the contains array is false we set it to true and
-			// increment numOfCharacters
-			if (contains[(int) (character) - (int) ('a')] == 0) {
-				contains[(int) (character) - (int) ('a')] = 1;
-				numOfCharacters = numOfCharacters + 1;
+		// creating a hashmap to store the characters (a-z) occuring the text
+		HashMap<Character,Integer> listOfCharacters = new HashMap<Character,Integer>();
+		// for each character in text
+		for(int i=0;i<text.length();i++)
+		{
+			char character = text.charAt(i);
+			// if the character is an alphabet
+			if(character >= 'a' && character <= 'z')
+			{
+				// if the alphabet is not present in the hashmap
+				if(listOfCharacters.containsKey(character) == false)
+					// we add the alphabet to the hashmap
+					listOfCharacters.put(character, 1);
 			}
 		}
-		// if numOfCharacters is equal to 26 we make result true else false
-		if (numOfCharacters == 26) {
+		// if hashmap size is equal to 26 we make result true else false
+		if (listOfCharacters.size() == 26) {
 			result = true;
 		} 
 		return result;
