@@ -18,7 +18,7 @@ public class SentenceValidation {
 		if (result)
 			System.out.println("Yes, the sentence starts with a capital letter and ends with a period(.)");
 		else
-			System.out.println("No, the sentence starts with a capital letter and ends with a period(.)");
+			System.out.println("No, the sentence does not start with a capital letter and ends with a period(.)");
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class SentenceValidation {
 	 * @return boolean
 	 */
 	private static boolean isValidSentence(String sentence) {
-		Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z | \\s]*\\.$");
+		Pattern pattern = Pattern.compile("^[A-Z][a-zA-Z\\s\\S]*\\.$");
 		Matcher matcher = pattern.matcher(sentence);
 		if (matcher.find())
 			return true;
