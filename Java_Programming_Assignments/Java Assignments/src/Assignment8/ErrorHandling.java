@@ -51,11 +51,11 @@ public class ErrorHandling {
 		try {
 			// makes a call to the method1
 			method1();
-		} catch (Exception e) {
+		} catch (ExceptionOne | ExceptionTwo | ExceptionThree e) {
 			System.out.println(e.getMessage() + " is thrown");
 			System.out.println(e.getMessage() + " is caught");
 		} finally {
-			System.out.println("finally block executed");
+			System.out.println("finally block executed\n");
 		}
 
 	}
