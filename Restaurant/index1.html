@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="row">
+        <div id="tableDiv">
+            <div id="searchTableDiv">
+                <h3>Tables</h3>
+                <input type="text" id="searchTable" placeholder="Seach table" onkeyup="searchTable()">
+            </div>
+        </div>
+        <div id="menuDiv">
+            <div id="searchMenuDiv">
+                <h3>Menu</h3>
+                <input type="text" id="searchMenu" placeholder="Seach menu... by course.. by food" onkeyup="searchMenu()">
+            </div>
+        </div>
+    </div>
+    <div id="row2">
+        <div id="myTables">
+            <ul id="myTableContents">
+                <li id="0" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="showPopUp(0)">
+                        <h3 id="head1">Table - 1</h3>
+                        Rs.<span id="cost">0</span>| Total items: <span id="totalItems">0</span>
+                </li>
+                <br>
+                <li id="1" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="showPopUp(1)">
+                        <h3 id="head2">Table - 2</h3>
+                        Rs.<span id="cost">0</span>| Total items: <span id="totalItems">0</span>
+                </li>
+                <br>
+                <li id="2" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="showPopUp(2)">
+                        <h3 id="head3">Table - 3</h3>
+                        Rs.<span id="cost">0</span>| Total items: <span id="totalItems">0</span>
+                </li>
+                <br>
+                <li id="3" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="showPopUp(3)">
+                        <h3 id="head4">Table - 4</h3>
+                        Rs.<span id="cost">0</span>| Total items: <span id="totalItems">0</span>
+                </li>
+            </ul>
+        </div>
+        <div id="myMenus">
+            <ul id="myMenuContents">
+                <li>
+                    <div id="menu1" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Hors d'oeuvres</h3>
+                        <h4>Goat cheese crostini with fig-olive tapenade</h4>
+                        Rs.<span id="cost">500</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu2" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Hors d'oeuvres</h3>
+                        <h4>Zucchini fritters</h4>
+                        Rs.<span id="cost">300</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu3" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Amuse-bouche</h3>
+                        <h4>Sweet potato chips with goat cheese and caviar</h4>
+                        Rs.<span id="cost">600</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu4" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Soup</h3>
+                        <h4>Cold melon and basil soup</h4>
+                        Rs.<span id="cost">400</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu5" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Soup</h3>
+                        <h4>Pumpkin sage bisque</h4>
+                        Rs.<span id="cost">300</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu6" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Appetizer</h3>
+                        <h4>Charred broccoli with shishito peppers and pickled onions</h4>
+                        Rs.<span id="cost">800</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu7" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Appetizer</h3>
+                        <h4>Mushrooms stuffed with Pecorino Romano, garlic, and bread crumbs</h4>
+                        Rs.<span id="cost">800</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu8" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>First main course</h3>
+                        <h4>Spicy Thai basil chicken</h4>
+                        Rs.<span id="cost">1200</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu9" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>First main course</h3>
+                        <h4>Roasted duck with an orange-ginger glaze</h4>
+                        Rs.<span id="cost">1200</span>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <div id="menu10" draggable="true" ondragstart="drag(event)">
+                        <h3 hidden>Palate Cleanser</h3>
+                        <h4>Sorbet (lemon,melon or mint)</h4>
+                        Rs.<span id="cost">100</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content" id="myModalContent">
+          
+        </div>
+    </div>
+    <div id="myBill" class="bill">
+        <div class="myBill-content" id="myBillContent">
+          
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
