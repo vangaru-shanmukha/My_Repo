@@ -41,6 +41,7 @@
         "Roasted duck with an orange-ginger glaze" : 1200,
         "Sorbet (lemon,melon or mint)" : 100
     }
+    
 function searchTable() {
 
     var input,filter,ul,li,div,i,head;
@@ -52,7 +53,7 @@ function searchTable() {
         var num = i+1;
         var name = "table"+num;
         head = li[i].getElementsByTagName("h3");
-        var table = document.getElementById(name);
+        var table = document.getElementById(i+"");
         if(head[0].innerHTML.toUpperCase().indexOf(filter) > -1){
             if(table != null)
                 table.style.display = "";

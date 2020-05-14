@@ -79,10 +79,7 @@ input[type=text],input[type="number"] {
     padding: 10px;
 }
 
-#myMenuContents li #menu1,
-#menu2,#menu3,#menu4,#menu5
-,#menu6,#menu7,#menu8,#menu9
-,#menu10 {
+#myMenuContents li  {
     padding: 10px;
     text-decoration: none;
     color: black;
