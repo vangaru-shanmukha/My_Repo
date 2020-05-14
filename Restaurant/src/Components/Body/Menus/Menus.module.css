@@ -1,0 +1,24 @@
+.Menus {
+    border: 1px solid black;
+    flex: 65%;
+    padding: 15px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 160px;
+}
+
+.MenusContent {
+    list-style-type: none;
+    padding: 10px;
+}
+
+.MenusContent li {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    display: block;
+    border: 1px solid #888888;
+    box-shadow: 3px 3px #888888;
+    margin-bottom: 15px;
+    text-align: left;
+}
